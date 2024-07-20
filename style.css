@@ -1,0 +1,651 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200;300;400;500;600;700;800&display=swap');
+
+*
+{
+    font-family: 'Source Code Pro', monospace;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body
+{
+    width: 100vw;
+    height: 100vh;
+    background-color: #dfe6e9;
+    display: grid;
+    place-items: center;
+    /* background-color: yellow; */
+    padding: 4px;
+}
+
+.container
+{
+    width: 50rem;
+    height: 40rem;
+    background-color: white;
+    box-shadow: rgb(122 117 117 / 10%) 7px 7px 8px 5px;
+    display: flex;
+    user-select: none;
+    border-radius: 5px;
+    /* margin: 10px; */
+
+}
+
+.ledger
+{
+    background-color: #2f3542;
+    padding: 8px 20px;
+    flex: 1.2;
+    color: white;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.ledger h2
+{
+    text-transform: uppercase;
+    color: #feca57;
+}
+.ledger h2,
+.ledger h4,
+.ledger h1
+{
+    font-weight: 600;
+    margin-bottom: 4px;
+    padding: 4px;
+}
+
+.inc-exp-container
+{
+    display: flex;
+    padding: 4px;
+    gap: 10px;
+}
+
+.inc-exp-container div
+{
+    /* background-color: rebeccapurple; */
+    text-align: center;
+    text-transform: uppercase;
+    padding: 14px;
+    font-size: 18px;
+    flex: 1;
+    border-radius: 4px;
+}
+
+.inc-exp-container p
+{
+    font-size: 18px;
+
+}
+
+.inc-exp-container div.inc
+{
+    color: #1dd1a1;
+    border: 3px solid #1dd1a1;
+}
+
+.inc-exp-container div.exp
+{
+    color: #ee5253;
+    border: 3px solid #ee5253;
+}
+
+
+
+#form
+{
+    /* background-color: skyblue; */
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.form-control
+{
+    margin-top: 5px;
+    /* background-color: orange; */
+}
+
+label
+{
+    display: inline-block;
+    margin: 8px 0;
+    font-size: 20px;
+    font-weight: 400;
+    /* background-color: orange; */
+    
+}
+
+input[type = "text"],
+input[type = "number"]
+{
+    border: 1px solid #dedede;
+    display: block;
+    width: 100%;
+    font: 18px;
+    padding: 10px;
+    outline: none;
+    border-radius: 2px;
+    /* background-color: orange; */
+}
+
+.btn
+{
+    background-color: #2e86de;
+    color: white;
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+    padding: 8px;
+    font-size: 16px;
+    border: 0;
+    border-radius: 4px;
+    font-weight: 400;
+    cursor: pointer;
+    transition: 0.3s ease;
+    box-shadow: #2e86de 1px 3px 14px 1px, #2183e4 0px 0px 0px 1px;
+}
+
+.btn:hover
+{
+    background-color: #2f3542;
+    border: 1px solid #2e86de;
+    font-weight: bold;
+
+}
+
+/* .chart-container
+{
+    background-color: green;
+    height: 210px;
+    width: 100%;
+    margin-top: 20px;
+    border-radius: 4px;
+} */
+
+
+
+.toggle
+{
+    background-color: #feca57;
+    position: absolute;
+    top: 20px;
+    right: 16px;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: rgba(27,31,35,0.15) 0px 0px 2px 3px;
+}
+
+.toggle.active
+{
+    background-color: #1066bc;
+    box-shadow: rgba(27,31,35,0.15) 0px 0px 2px 3px;
+}
+
+
+
+.transaction
+{
+    /* background-color: yellow; */
+    position: relative;
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+}
+
+.transaction h3
+{
+    text-transform: uppercase;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #f1f1f1;
+    margin-bottom: 5px;
+}
+
+.trans
+{
+    list-style-type: none;
+}
+
+.trans li
+{
+    background-color: rgb(239, 236, 236);
+    color: #333;
+    box-shadow: rgba(0,0,0,0.2) 0px 1px 3px 0px, rgba(27,31,35,0.15) 0px 0px 0px 1px;
+    padding: 10px;
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+    position: relative;
+    border-radius: 4px;
+    cursor: pointer;
+    
+}
+.trans li.inc
+{
+    border-left: 5px solid #1dd1a1;
+}
+
+.trans li.exp
+{
+    border-left: 5px solid #ee5253;
+}
+
+.btn-del
+{
+    position: absolute;
+        top: -10px;
+        right: -10px;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        font-weight: 600;
+        color: white;
+        background-color: #e74c3c;
+        border: none;
+        font-size: 18px;
+        line-height: 20px;
+        cursor: pointer;
+        opacity: 0;
+}
+
+.trans li:hover .btn-del
+{
+    opacity: 1;
+}
+
+::-webkit-scrollbar
+{
+    width: 5px;
+}
+
+::-webkit-scrollbar-track
+{
+    background-color: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb
+{
+    background-color: #2e86de;
+    border-radius: 8px;
+}
+
+
+/* --------------------------------------------day-night-toggle---------------------------------- */
+/* .container.dark
+{
+    background-color: #f1f1f1;
+} */
+
+.container.dark .ledger
+{
+    background-color: white;
+    color: black;
+}
+
+.container.dark .ledger h2{
+    color: #2e86de;
+}
+
+.container.dark .inc-exp-container div.inc
+{
+    color: #04a479;
+    border: 3px solid #04a479;
+}
+
+.container.dark .inc-exp-container div.exp
+{
+    color: #d33434;
+    border: 3px solid #d33434;
+}
+
+
+
+
+
+
+.container.dark input[type = "text"],
+.container.dark input[type = "number"]
+{
+    border: 1px solid #1066bc;
+    color: #1066bc;
+    /* background-color: gainsboro; */
+}
+
+.container.dark .btn
+{
+    background-color: white;
+    color: black;
+    font-weight: 600;
+    border: 1px solid #1066bc;
+    box-shadow: #d4d9da 1px 3px 14px 1px, rgba(168, 171, 174, 0.15) 0px 0px 0px 1px;
+}
+
+.container.dark .btn:hover
+{
+    background-color: #1066bc;
+    color: whitesmoke;
+    font-weight: 600;
+}
+
+
+
+
+.container.dark .transaction
+{
+    /* background-color: #2f3542; */
+    background-color: #3b414b;
+    
+}
+
+.container.dark .transaction h3
+{
+    color: #feca57;
+    border-bottom: 1px solid gainsboro;
+    
+}
+
+
+
+.container.dark .trans li
+{
+    /* background-color: #464c58; */
+    background-color: #292d38;
+    /* color: #333; */
+    
+    
+}
+.container.dark .trans li.inc
+{
+    border-left: 5px solid #f1a90e;
+    color: #02e0a5;
+}
+
+.container.dark .trans li.exp
+{
+    border-left: 5px solid #feca57;
+    color: #ff6e5e;
+}
+
+.container.dark .btn-del
+{
+    position: absolute;
+    color: #e74c3c;
+    background-color: white;
+    border: 1px solid #e74c3c;
+        
+}
+
+/*_____________________ tablet_view_______________________________ */
+
+@media only screen and (max-width: 950px)
+{
+    body
+    {
+        padding: 8px;
+    }
+
+    .container
+    {
+        width: 90vw;
+        height: 100vh;
+    }
+
+    .ledger h2
+    {
+        font-size: 22px;
+    }
+
+
+}
+
+/*_____________________ mobile_view_______________________________ */
+
+@media only screen and (max-width: 700px)
+{
+    .container
+    {
+        width: 95vw;
+        height: 50vh;
+        /* margin-bottom: 4px; */
+    }
+
+
+    .ledger
+    {
+        /* background-color: yellowgreen; */
+        padding: 4px;
+    }
+
+    .ledger h2
+    {
+        font-size: 15px;
+        font-weight: 600;
+        /* background-color: red; */
+    }
+    .ledger h4
+    {
+        font-size: 12px;
+        /* background-color: yellow; */
+    }
+    .ledger h1
+    {
+        font-size: 16px;
+        /* background-color: green; */
+        padding-top: 1px;
+    }
+     
+    .ledger h2,
+    .ledger h4,
+    .ledger h1
+    {
+
+        /* font-weight: 600; */
+        margin-bottom: 2px;
+        padding-bottom: 2px;
+    }
+
+    .inc-exp-container
+    {
+        /* background-color: yellow; */
+        display: flex;
+        padding: 2px 2px;
+        gap: 4px;
+    }
+    
+    .inc-exp-container div
+    {
+        /* background-color: rebeccapurple; */
+        padding: 4px 10px;
+        font-size: 12px;
+               
+    }
+    
+    .inc-exp-container p
+    {
+        font-size: 13px;
+    
+    }
+
+    .inc-exp-container h4
+    {
+        padding-top: 2px;
+    }
+    
+    .inc-exp-container div.inc
+    {
+        color: #1dd1a1;
+        border: 1px solid #1dd1a1;
+    }
+    
+    .inc-exp-container div.exp
+    {
+        color: #ee5253;
+        border: 1px solid #ee5253;
+    }
+    
+
+
+
+
+
+    #form
+    {
+        /* background-color: skyblue; */
+        padding: 2px 4px;
+        margin-top: 10px;
+    }
+    
+    .form-control
+    {
+        /* background-color: yellow; */
+        margin-top: 4px;
+        
+    }
+    
+    label
+    {
+        /* background-color: green; */
+        display: inline-block;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        font-size: 13px;
+        
+    }
+    
+    input[type = "text"],
+    input[type = "number"]
+    {
+        
+        font-size: 12px;
+        padding: 2px 6px;
+        width: 100%;
+        /* background-color: yellow; */
+        
+    }
+
+    /* .chart-container
+    {
+        background-color: green;
+        height: 200px;
+        width: 100%;
+        margin-top: 20px;
+        border-radius: 4px;
+    } */
+    
+    .btn
+    {
+        margin-top: 14px;
+        /* margin-left: 8px; */
+        padding: 4px 6px;
+        font-size: 12px;
+        width: 100%;
+        border-radius: 2px;
+    }
+    
+    .btn:hover
+    {
+        background-color: #2f3542;
+        border: 1px solid #2e86de;
+        font-weight: 500;
+    
+    }
+    
+
+
+
+
+
+
+
+
+    .transaction
+    {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 5px;
+        padding-right: 10px;
+        /* background-color: blue; */
+    }
+    
+    .transaction h3
+    {
+        font-size: 15px;
+        text-transform: uppercase;
+        padding-bottom: 8px;
+        border-bottom: 2px solid #f1f1f1;
+        margin-bottom: 4px;
+    }
+        
+    .trans li
+    {
+        /* background-color: yellow; */
+        padding: 5px 2px;
+        margin: 10px 0;
+        display: flex;
+        justify-content: space-between;
+        font-weight: 600; 
+        font-size: 13px;     
+    }
+    .trans li.inc
+    {
+        border-left: 4px solid #1dd1a1;
+    }
+    
+    .trans li.exp
+    {
+        border-left: 4px solid #ee5253;
+    }
+    
+    .btn-del
+    {
+        top: -10px;
+        right: -10px;
+        width: 15px;
+        height: 15px;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 15px;
+    }
+
+    ::-webkit-scrollbar
+    {
+        width: 3px;
+    }
+
+
+
+
+    .toggle
+    {
+        background-color: #feca57;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        height: 16px;
+        width: 16px;
+        border-radius: 50%;
+    }
+}
+
+
+/* 
+.doughnutChart
+{
+    width: 250px;
+    height: 250px;
+    
+}
+
+/* .chart-container
+{
+    width: 300px;
+    height: 300px;
+    bottom: 1px;
+    background-color: green;
+} */ 
